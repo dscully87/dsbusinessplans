@@ -3,446 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>miStuff Business Plan</title>
-<style>
-  :root{
-    --bg:#f7f5f1;
-    --card:#ffffff;
-    --ink:#1c1b1a;
-    --muted:#5c5850;
-    --accent:#b5542f;
-    --accent-soft:#f1e3d8;
-    --line:#e5e0d8;
-    --table-head:#efe9e0;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#15140f;
-      --card:#1f1d17;
-      --ink:#f2efe8;
-      --muted:#b3ab9e;
-      --accent:#e08659;
-      --accent-soft:#3a2a1f;
-      --line:#33302a;
-      --table-head:#26221b;
-    }
-  }
-  :root[data-theme="light"]{
-    --bg:#f7f5f1; --card:#ffffff; --ink:#1c1b1a; --muted:#5c5850;
-    --accent:#b5542f; --accent-soft:#f1e3d8; --line:#e5e0d8; --table-head:#efe9e0;
-  }
-  :root[data-theme="dark"]{
-    --bg:#15140f; --card:#1f1d17; --ink:#f2efe8; --muted:#b3ab9e;
-    --accent:#e08659; --accent-soft:#3a2a1f; --line:#33302a; --table-head:#26221b;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.6;
-  }
-  .wrap{max-width:880px;margin:0 auto;padding:56px 24px 96px;}
-  a.back{color:var(--muted);text-decoration:none;font-size:14px;}
-  a.back:hover{color:var(--accent);}
-
-  header.hero{text-align:center;margin:32px 0 48px;}
-  .mark{font-size:40px;line-height:1;margin-bottom:12px;}
-  .badge-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
-  .badge{
-    font-size:13px;
-    letter-spacing:.04em;
-    color:var(--accent);
-    background:var(--accent-soft);
-    padding:5px 12px;
-    border-radius:999px;
-  }
-  h1{font-size:clamp(30px,5vw,44px);margin:0 0 6px;letter-spacing:-0.01em;}
-  h1 small{display:block;font-size:0.4em;font-weight:600;color:var(--muted);margin-top:6px;}
-  .tagline{font-size:clamp(20px,3vw,26px);font-weight:600;margin:28px 0 12px;}
-  .lede{color:var(--muted);font-size:17px;max-width:640px;margin:0 auto;}
-
-  .meta-row{
-    display:flex;justify-content:center;gap:24px;flex-wrap:wrap;
-    margin:24px 0 40px;font-size:13px;color:var(--muted);
-  }
-
-  .stat-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:16px;margin-bottom:64px;
-  }
-  .stat{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:20px;text-align:center;
-  }
-  .stat .num{font-size:24px;font-weight:700;color:var(--accent);}
-  .stat .label{font-size:13px;color:var(--muted);margin-top:6px;}
-
-  section{margin-bottom:64px;}
-  section > .kicker{
-    font-size:13px;letter-spacing:.06em;text-transform:uppercase;
-    color:var(--accent);margin-bottom:8px;font-weight:600;
-  }
-  section > h2{font-size:clamp(24px,3.5vw,32px);margin:0 0 18px;letter-spacing:-0.01em;}
-  section > p.intro{color:var(--muted);font-size:16px;max-width:680px;margin-bottom:28px;}
-
-  .card-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:18px;
-  }
-  .card{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;
-  }
-  .card h3{margin:0 0 10px;font-size:17px;}
-  .card p{margin:0;color:var(--muted);font-size:14.5px;}
-
-  .steps{display:grid;gap:16px;}
-  .step{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
-  }
-  .step .n{
-    flex:none;width:32px;height:32px;border-radius:50%;
-    background:var(--accent-soft);color:var(--accent);font-weight:700;
-    display:flex;align-items:center;justify-content:center;font-size:14px;
-  }
-  .step h3{margin:0 0 6px;font-size:16px;}
-  .step p{margin:0;color:var(--muted);font-size:14.5px;}
-
-  .callout{
-    background:var(--accent-soft);border-radius:14px;padding:20px 22px;
-    font-size:14.5px;color:var(--ink);margin-top:22px;
-  }
-  .callout strong{color:var(--accent);}
-
-  table{
-    width:100%;border-collapse:collapse;font-size:14px;
-    background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  }
-  .table-scroll{overflow-x:auto;border-radius:14px;}
-  th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;}
-  th{background:var(--table-head);font-weight:600;}
-  tr:last-child td{border-bottom:none;}
-  .note{font-size:13px;color:var(--muted);margin-top:14px;}
-
-  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
-  .price-card{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;
-    position:relative;
-  }
-  .price-card.featured{border-color:var(--accent);}
-  .price-card .tag{
-    position:absolute;top:-12px;left:20px;background:var(--accent);color:#fff;
-    font-size:12px;padding:3px 10px;border-radius:999px;font-weight:600;
-  }
-  .price-card h3{margin:8px 0 4px;font-size:18px;}
-  .price-card .price{font-size:22px;font-weight:700;margin-bottom:14px;}
-  .price-card ul{margin:0 0 14px;padding-left:18px;color:var(--muted);font-size:14px;}
-  .price-card ul li{margin-bottom:6px;}
-  .price-card .goal{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;}
-
-  .gtm-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
-  .gtm-cols h3{font-size:16px;margin:0 0 12px;}
-  .gtm-cols ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;}
-  .gtm-cols ul li{margin-bottom:10px;}
-
-  .metrics-grid{
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:16px;margin-top:28px;
-  }
-  .metric{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center;}
-  .metric .label{font-size:13px;color:var(--accent);font-weight:600;margin-bottom:6px;}
-  .metric p{margin:0;font-size:13.5px;color:var(--muted);}
-
-  .roadmap{display:grid;gap:16px;}
-  .phase{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:20px 22px;display:grid;grid-template-columns:80px 1fr;gap:16px;align-items:start;
-  }
-  .phase .when{font-weight:700;color:var(--accent);font-size:14px;}
-  .phase .status-tag{font-size:12px;color:var(--muted);display:block;margin-top:4px;}
-  .phase h3{margin:0 0 6px;font-size:16px;}
-  .phase p{margin:0;color:var(--muted);font-size:14.5px;}
-
-  .fin-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:24px;}
-  .fin-notes .card h3{color:var(--accent);font-size:15px;}
-
-  .risk-grid{display:grid;gap:16px;}
-  .risk{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;
-  }
-  .risk h3{margin:0 0 8px;font-size:16px;display:flex;gap:10px;align-items:center;}
-  .risk .sev{
-    font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;
-    background:var(--accent-soft);color:var(--accent);
-  }
-  .risk p{margin:0;color:var(--muted);font-size:14.5px;}
-
-  .bottom-line{
-    background:var(--accent-soft);border-radius:16px;padding:28px;text-align:center;
-    font-size:16px;margin-top:8px;
-  }
-
-  footer{
-    margin-top:80px;text-align:center;color:var(--muted);font-size:13px;
-    border-top:1px solid var(--line);padding-top:32px;
-  }
-  footer .mark{font-size:24px;margin-bottom:6px;}
-  footer .fine{max-width:640px;margin:20px auto 0;font-size:12px;line-height:1.6;}
-</style>
+<title>miStuff — Business Plan</title>
+<meta name="description" content="miStuff business plan: an early-learning app that teaches a child using their own belongings.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141311'/%3E%3Cpath d='M8 24 L8 8 L16 8 Q24 8 24 16 Q24 24 16 24 Z' fill='none' stroke='%23ff4d1f' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="../../index.html">DS Business Plans</a>
+    <nav>
+      <a class="back" href="../../index.html">← Index</a>
+      <button class="theme-toggle" data-theme-toggle type="button">Dark</button>
+    </nav>
+  </div>
+</header>
+
 <div class="wrap">
-  <a class="back" href="../../index.html">Back to all plans</a>
-
-  <header class="hero">
-    <div class="mark">miStuff</div>
-    <div class="badge-row">
-      <span class="badge">Early-learning</span>
-      <span class="badge">Mobile / PWA</span>
-      <span class="badge">Pre-launch</span>
-    </div>
-    <h1>Business Plan</h1>
+  <div class="doc-header">
+    <div class="doc-id"><span class="dot"></span> Confidential business plan — prepared July 2026 — status: product built, pre-monetization</div>
+    <h1 class="title">miStuff</h1>
     <p class="tagline">Their first words, from their own world.</p>
-    <p class="lede">miStuff turns the objects in a child's actual home, their cup, their shoe, their teddy, into the learning game. A caregiver photographs the things a toddler already loves; miStuff builds matching and naming games from those exact photos.</p>
-  </header>
-
-  <div class="meta-row">
-    <span>Confidential business plan</span>
-    <span>Prepared July 2026</span>
-    <span>Status: product built, pre-monetization</span>
+    <p class="lede">miStuff turns the objects in a child's actual home — their cup, their shoe, their teddy — into the learning game. A caregiver photographs the things a toddler already loves; miStuff builds matching and naming games from those exact photos.</p>
   </div>
 
-  <div class="stat-grid">
-    <div class="stat"><div class="num">0 to 4</div><div class="label">Core age band (with a 0 to 12 month baby-log on-ramp)</div></div>
+  <div class="stat-strip" data-reveal>
+    <div class="stat"><div class="num">0–4</div><div class="label">Core age band (with a 0–12 month baby-log on-ramp)</div></div>
     <div class="stat"><div class="num">$5B+</div><div class="label">Global kids' learning-app market, growing double digits</div></div>
     <div class="stat"><div class="num">Built</div><div class="label">Full web app shipping, 15+ games, multi-child, offline</div></div>
     <div class="stat"><div class="num">$0 ads</div><div class="label">No advertising, no trackers, no child-data sale</div></div>
   </div>
 
-  <section>
-    <div class="kicker">Executive summary</div>
-    <h2>A personalized, privacy-first learning app that teaches a child using their own belongings.</h2>
-    <p class="intro">Toddlers learn language by naming the concrete objects around them. Every mainstream learning app teaches a generic apple, a stock dog, a cartoon ball. miStuff teaches your apple, the real one on the kitchen counter, by letting a caregiver photograph the child's own things, sort them into collections, and hand the child games built from those photos.</p>
-    <p class="intro">The product is already built and shipping as a web app (installable PWA): multi-child profiles, a photo library shared across siblings and co-parents, tap-to-match and "explore" games, an arcade, room-based scenes, and a baby-stage care log. It is deliberately privacy-first: no ads, no third-party trackers, row-level data isolation, and a recently added consent flow, parental gate, and automatic photo retention policy built for the Apple Kids category.</p>
-    <p class="intro">The opportunity is to convert a differentiated, finished product into a subscription business: launch native iOS/Android, turn on freemium pricing, and grow through the most shareable thing in the category, a demo where a parent watches their child light up at a photo of their own toy.</p>
+  <div class="doc">
 
-    <div class="card-grid">
-      <div class="card">
-        <h3>The wedge</h3>
-        <p>Personalization no competitor can copy cheaply: the content is the family's own photos and words. It also makes the app work in any language and for speech-delay practice out of the box.</p>
-      </div>
-      <div class="card">
-        <h3>The trust moat</h3>
-        <p>Parents are increasingly wary of what kids' apps do with data. miStuff photographs belongings, not the child, sells nothing, and gives full export and delete. Privacy is a feature, not a footnote.</p>
-      </div>
-      <div class="card">
-        <h3>The ask (illustrative)</h3>
-        <p>Fund a roughly 12-month push: native launch, payments, a content/curriculum layer, and paid-acquisition testing to prove repeatable unit economics.</p>
-      </div>
-    </div>
-  </section>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Executive summary</div>
+      <h2>A personalized, privacy-first learning app that teaches a child using their own belongings.</h2>
+      <p class="intro">Toddlers learn language by naming the concrete objects around them. Every mainstream learning app teaches a generic apple, a stock dog, a cartoon ball. miStuff teaches your apple, the real one on the kitchen counter, by letting a caregiver photograph the child's own things, sort them into collections, and hand the child games built from those photos.</p>
+      <p class="intro">The product is already built and shipping as a web app (installable PWA): multi-child profiles, a photo library shared across siblings and co-parents, tap-to-match and "explore" games, an arcade, room-based scenes, and a baby-stage care log. It is deliberately privacy-first: no ads, no third-party trackers, row-level data isolation, and a recently added consent flow, parental gate, and automatic photo retention policy built for the Apple Kids category.</p>
+      <p class="intro">The opportunity is to convert a differentiated, finished product into a subscription business: launch native iOS/Android, turn on freemium pricing, and grow through the most shareable thing in the category — a demo where a parent watches their child light up at a photo of their own toy.</p>
 
-  <section>
-    <div class="kicker">The problem</div>
-    <h2>Generic content, and a trust deficit, in the most sensitive app category there is.</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Learning that doesn't transfer</h3>
-        <p>A toddler who masters a cartoon apple on screen often doesn't connect it to the apple in their hand. Recognition of real objects is where early vocabulary actually forms, and it's exactly what stock content skips.</p>
-      </div>
-      <div class="card">
-        <h3>Ads and data in kids' apps</h3>
-        <p>Regulators (COPPA, GDPR-K, the UK Age-Appropriate Design Code) and parents alike are cracking down on ad-driven, data-hungry children's apps. Many popular titles monetize attention in ways caregivers have come to distrust.</p>
-      </div>
-      <div class="card">
-        <h3>One-size-fits-none</h3>
-        <p>Multilingual families, kids in speech therapy, and children with their own specific interests are underserved by fixed English word banks. There's no easy way to teach the words this family actually uses.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="kicker">The product</div>
-    <h2>Photograph it, sort it, play it.</h2>
-    <p class="intro">A caregiver builds the library once; the child plays from it for years as the games grow with them. Everything is cache-first, so it works offline and feels instant.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="n">1</div>
-        <div>
-          <h3>Capture and curate</h3>
-          <p>The caregiver snaps photos of the child's things and groups them into collections (toys, kitchen, clothes) and rooms that become in-game scenes. Items can be assigned per child, so siblings share one library but get their own slice.</p>
+      <div class="grid-plain">
+        <div class="cell">
+          <h3>The wedge</h3>
+          <p>Personalization no competitor can copy cheaply: the content is the family's own photos and words. It also makes the app work in any language and for speech-delay practice out of the box.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="n">2</div>
-        <div>
-          <h3>Play and learn</h3>
-          <p>Photos power tap-to-match and naming games, an arcade of quick games, and Explore games like Object Hunter and The Infinite Stage. Optional voice reads words aloud in the caregiver's own recording or device speech.</p>
+        <div class="cell">
+          <h3>The trust moat</h3>
+          <p>Parents are increasingly wary of what kids' apps do with data. miStuff photographs belongings, not the child, sells nothing, and gives full export and delete. Privacy is a feature, not a footnote.</p>
         </div>
-      </div>
-      <div class="step">
-        <div class="n">3</div>
-        <div>
-          <h3>Grow with the child</h3>
-          <p>Developmental phases gate what's shown: a 0 to 12 month baby-log stage (feeds and nappies), an Identify stage (matching), and an Explore stage for older toddlers, with higher phases reserved on the same rails.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="n">4</div>
-        <div>
-          <h3>Share the household</h3>
-          <p>One account, multiple children, and up to three invited caregivers (a second parent, a grandparent, a nanny) who all see the same library and progress, a built-in, warm referral loop.</p>
+        <div class="cell">
+          <h3>The ask (illustrative)</h3>
+          <p>Fund a roughly 12-month push: native launch, payments, a content/curriculum layer, and paid-acquisition testing to prove repeatable unit economics.</p>
         </div>
       </div>
     </div>
-    <div class="callout">
-      <strong>Why it's defensible:</strong> the moat isn't a clever algorithm, it's the accumulating, irreplaceable library of a specific family's photos and words. Switching cost rises with every photo added, and the same content engine unlocks new segments (languages, therapy) at near-zero marginal cost.
-    </div>
   </section>
 
-  <section>
-    <div class="kicker">Market and customer</div>
-    <h2>A large, defensive spend category. Parents pay for their kids first.</h2>
-    <p class="intro">The global market for children's educational apps runs into the several billions of dollars annually and grows at a double-digit rate, riding a durable trend: earlier device exposure met by parents who want that time to be worthwhile. Early learning is one of the most resilient consumer-spend categories through downturns.</p>
-    <p class="intro">miStuff's beachhead is the intentional parent of a 0 to 4 year old, often a first-time parent, active in parenting communities, willing to pay to avoid ads. From there, the same product expands into adjacent, underserved segments that value the "your own words" capability most.</p>
-    <p class="intro">Sizing figures here are directional market context, not a bottom-up forecast. A funded diligence pass would refine TAM/SAM/SOM by geography and platform.</p>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Beachhead: Intentional parents, 0 to 4</h3>
-        <p>Privacy-conscious, engaged, want screen time to count. Highest willingness to pay for an ad-free, made-with-my-child experience.</p>
-      </div>
-      <div class="card">
-        <h3>Expansion: Multilingual and immigrant families</h3>
-        <p>Label the home's objects in the home language, something fixed-word-bank apps can't do. A wedge into large global diaspora communities.</p>
-      </div>
-      <div class="card">
-        <h3>Expansion: Speech and early intervention</h3>
-        <p>SLPs already teach with real-object photos. A therapy mode plus clinician seats opens a B2B2C channel with strong retention.</p>
+  <section data-reveal>
+    <div>
+      <div class="kicker">The problem</div>
+      <h2>Generic content, and a trust deficit, in the most sensitive app category there is.</h2>
+      <div class="grid-plain">
+        <div class="cell">
+          <h3>Learning that doesn't transfer</h3>
+          <p>A toddler who masters a cartoon apple on screen often doesn't connect it to the apple in their hand. Recognition of real objects is where early vocabulary actually forms, and it's exactly what stock content skips.</p>
+        </div>
+        <div class="cell">
+          <h3>Ads and data in kids' apps</h3>
+          <p>Regulators (COPPA, GDPR-K, the UK Age-Appropriate Design Code) and parents alike are cracking down on ad-driven, data-hungry children's apps. Many popular titles monetize attention in ways caregivers have come to distrust.</p>
+        </div>
+        <div class="cell">
+          <h3>One-size-fits-none</h3>
+          <p>Multilingual families, kids in speech therapy, and children with their own specific interests are underserved by fixed English word banks. There's no easy way to teach the words this family actually uses.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="kicker">Competitive landscape</div>
-    <h2>Everyone ships stock content. No one ships the child's own.</h2>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Player</th><th>Model</th><th>Personal photos</th><th>Ad-free / privacy-first</th><th>Multilingual by default</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>miStuff</td><td>Freemium subscription</td><td>Core</td><td>Yes</td><td>Yes</td></tr>
-          <tr><td>Khan Academy Kids</td><td>Free (nonprofit)</td><td>No</td><td>Yes</td><td>Limited</td></tr>
-          <tr><td>Lingokids</td><td>Subscription</td><td>No</td><td>Mostly</td><td>Fixed set</td></tr>
-          <tr><td>Duolingo ABC</td><td>Free (funnel)</td><td>No</td><td>Yes</td><td>English</td></tr>
-          <tr><td>Endless Alphabet / Montessori apps</td><td>Paid / IAP</td><td>No</td><td>Varies</td><td>Varies</td></tr>
-          <tr><td>Speech Blubs</td><td>Subscription</td><td>Some</td><td>Mostly</td><td>Limited</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note">Competitor attributes are summarized from public positioning and may change. The point isn't that rivals are weak, several are excellent, it's that miStuff occupies a square (personal content times privacy) none of them can enter without rebuilding around user-generated media.</p>
-  </section>
-
-  <section>
-    <div class="kicker">Business model</div>
-    <h2>Freemium subscription, with a B2B seat expansion later.</h2>
-    <p class="intro">Free enough to build a real library and feel the magic; paid to unlock the whole household and the full game set. No ads at any tier.</p>
-    <div class="pricing-grid">
-      <div class="price-card">
-        <h3>Free</h3>
-        <div class="price">$0</div>
-        <ul>
-          <li>One child profile</li>
-          <li>Starter collections and core matching game</li>
-          <li>On-device / offline play</li>
-          <li>No ads, ever</li>
-        </ul>
-        <div class="goal">Goal: reach the "aha," first photo, first game.</div>
+  <section data-reveal>
+    <div>
+      <div class="kicker">The product</div>
+      <h2>Photograph it, sort it, play it.</h2>
+      <p class="intro">A caregiver builds the library once; the child plays from it for years as the games grow with them. Everything is cache-first, so it works offline and feels instant.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">01</div>
+          <div>
+            <h3>Capture and curate</h3>
+            <p>The caregiver snaps photos of the child's things and groups them into collections (toys, kitchen, clothes) and rooms that become in-game scenes. Items can be assigned per child, so siblings share one library but get their own slice.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">02</div>
+          <div>
+            <h3>Play and learn</h3>
+            <p>Photos power tap-to-match and naming games, an arcade of quick games, and Explore games like Object Hunter and The Infinite Stage. Optional voice reads words aloud in the caregiver's own recording or device speech.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">03</div>
+          <div>
+            <h3>Grow with the child</h3>
+            <p>Developmental phases gate what's shown: a 0–12 month baby-log stage (feeds and nappies), an Identify stage (matching), and an Explore stage for older toddlers, with higher phases reserved on the same rails.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="n">04</div>
+          <div>
+            <h3>Share the household</h3>
+            <p>One account, multiple children, and up to three invited caregivers (a second parent, a grandparent, a nanny) who all see the same library and progress — a built-in, warm referral loop.</p>
+          </div>
+        </div>
       </div>
-      <div class="price-card featured">
-        <span class="tag">Most popular</span>
-        <h3>miStuff Premium</h3>
-        <div class="price">$6.99 / mo or $47.99 / yr</div>
-        <ul>
-          <li>Unlimited children and collections</li>
-          <li>All games, arcade and Explore</li>
-          <li>Co-caregiver sharing and cloud sync</li>
-          <li>Custom voice, care log, progress</li>
-        </ul>
-        <div class="goal">The household unlock. Annual plan drives LTV and retention.</div>
-      </div>
-      <div class="price-card">
-        <h3>Pro / Clinic (later)</h3>
-        <div class="price">Per seat</div>
-        <ul>
-          <li>SLP / early-intervention mode</li>
-          <li>Multi-family or classroom management</li>
-          <li>Progress export for practitioners</li>
-        </ul>
-        <div class="goal">Preschool and therapy channel. B2B2C expansion once consumer motion is proven.</div>
+      <div class="callout">
+        <strong>Why it's defensible</strong>
+        The moat isn't a clever algorithm, it's the accumulating, irreplaceable library of a specific family's photos and words. Switching cost rises with every photo added, and the same content engine unlocks new segments (languages, therapy) at near-zero marginal cost.
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="kicker">Go-to-market</div>
-    <h2>Lead with the most demoable moment in the category.</h2>
-    <div class="gtm-cols">
-      <div>
-        <h3>Organic and content</h3>
-        <ul>
-          <li>Short-form video: a child recognizing a photo of their own toy is inherently shareable on TikTok, Instagram, and Reels.</li>
-          <li>SEO and parenting communities: "teach toddler first words," multilingual parenting, speech-delay support.</li>
-          <li>App Store Kids category: the parental gate and consent flow are already built for it.</li>
-        </ul>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Market and customer</div>
+      <h2>A large, defensive spend category. Parents pay for their kids first.</h2>
+      <p class="intro">The global market for children's educational apps runs into the several billions of dollars annually and grows at a double-digit rate, riding a durable trend: earlier device exposure met by parents who want that time to be worthwhile. Early learning is one of the most resilient consumer-spend categories through downturns.</p>
+      <p class="intro">miStuff's beachhead is the intentional parent of a 0–4 year old, often a first-time parent, active in parenting communities, willing to pay to avoid ads. From there, the same product expands into adjacent, underserved segments that value the "your own words" capability most.</p>
+      <p class="intro">Sizing figures here are directional market context, not a bottom-up forecast. A funded diligence pass would refine TAM/SAM/SOM by geography and platform.</p>
+      <div class="grid-plain">
+        <div class="cell">
+          <h3>Beachhead: Intentional parents, 0–4</h3>
+          <p>Privacy-conscious, engaged, want screen time to count. Highest willingness to pay for an ad-free, made-with-my-child experience.</p>
+        </div>
+        <div class="cell">
+          <h3>Expansion: Multilingual and immigrant families</h3>
+          <p>Label the home's objects in the home language, something fixed-word-bank apps can't do. A wedge into large global diaspora communities.</p>
+        </div>
+        <div class="cell">
+          <h3>Expansion: Speech and early intervention</h3>
+          <p>SLPs already teach with real-object photos. A therapy mode plus clinician seats opens a B2B2C channel with strong retention.</p>
+        </div>
       </div>
-      <div>
-        <h3>Partnerships and loops</h3>
-        <ul>
-          <li>SLPs and pediatric practitioners recommending a real-object tool to families.</li>
-          <li>Built-in referral: inviting a co-parent or grandparent is a native, warm sharing act, not a growth hack.</li>
-          <li>Preschools as a later B2B2C beachhead once retention is proven.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="metrics-grid">
-      <div class="metric"><div class="label">Activation</div><p>First collection created plus first game played</p></div>
-      <div class="metric"><div class="label">D30 retention</div><p>Weekly-active children per household</p></div>
-      <div class="metric"><div class="label">Free to paid</div><p>Conversion to Premium (target 3 to 5%)</p></div>
-      <div class="metric"><div class="label">Referral</div><p>Invited co-caregivers per paying account</p></div>
     </div>
   </section>
 
-  <section>
-    <div class="kicker">Product roadmap</div>
-    <h2>From a finished web app to a monetized, multi-segment platform.</h2>
-    <div class="roadmap">
-      <div class="phase">
-        <div><span class="when">Now</span><span class="status-tag">Shipped</span></div>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Competitive landscape</div>
+      <h2>Everyone ships stock content. No one ships the child's own.</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Player</th><th>Model</th><th>Personal photos</th><th>Ad-free / privacy-first</th><th>Multilingual by default</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>miStuff</td><td>Freemium subscription</td><td>Core</td><td>Yes</td><td>Yes</td></tr>
+            <tr><td>Khan Academy Kids</td><td>Free (nonprofit)</td><td>No</td><td>Yes</td><td>Limited</td></tr>
+            <tr><td>Lingokids</td><td>Subscription</td><td>No</td><td>Mostly</td><td>Fixed set</td></tr>
+            <tr><td>Duolingo ABC</td><td>Free (funnel)</td><td>No</td><td>Yes</td><td>English</td></tr>
+            <tr><td>Endless Alphabet / Montessori apps</td><td>Paid / IAP</td><td>No</td><td>Varies</td><td>Varies</td></tr>
+            <tr><td>Speech Blubs</td><td>Subscription</td><td>Some</td><td>Mostly</td><td>Limited</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Competitor attributes are summarized from public positioning and may change. The point isn't that rivals are weak — several are excellent — it's that miStuff occupies a square (personal content times privacy) none of them can enter without rebuilding around user-generated media.</p>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div>
+      <div class="kicker">Business model</div>
+      <h2>Freemium subscription, with a B2B seat expansion later.</h2>
+      <p class="intro">Free enough to build a real library and feel the magic; paid to unlock the whole household and the full game set. No ads at any tier.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <ul>
+            <li>One child profile</li>
+            <li>Starter collections and core matching game</li>
+            <li>On-device / offline play</li>
+            <li>No ads, ever</li>
+          </ul>
+          <div class="goal">Goal: reach the "aha" — first photo, first game.</div>
+        </div>
+        <div class="price-card featured">
+          <span class="tag">Most popular</span>
+          <h3>miStuff Premium</h3>
+          <div class="price">$6.99/mo · $47.99/yr</div>
+          <ul>
+            <li>Unlimited children and collections</li>
+            <li>All games, arcade and Explore</li>
+            <li>Co-caregiver sharing and cloud sync</li>
+            <li>Custom voice, care log, progress</li>
+          </ul>
+          <div class="goal">The household unlock. Annual plan drives LTV and retention.</div>
+        </div>
+        <div class="price-card">
+          <span class="tag">Later</span>
+          <h3>Pro / Clinic</h3>
+          <div class="price">Per seat</div>
+          <ul>
+            <li>SLP / early-intervention mode</li>
+            <li>Multi-family or classroom management</li>
+            <li>Progress export for practitioners</li>
+          </ul>
+          <div class="goal">Preschool and therapy channel. B2B2C expansion once consumer motion is proven.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div>
+      <div class="kicker">Go-to-market</div>
+      <h2>Lead with the most demoable moment in the category.</h2>
+      <div class="gtm-cols">
         <div>
+          <h3>Organic and content</h3>
+          <ul>
+            <li>Short-form video: a child recognizing a photo of their own toy is inherently shareable on TikTok, Instagram, and Reels.</li>
+            <li>SEO and parenting communities: "teach toddler first words," multilingual parenting, speech-delay support.</li>
+            <li>App Store Kids category: the parental gate and consent flow are already built for it.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Partnerships and loops</h3>
+          <ul>
+            <li>SLPs and pediatric practitioners recommending a real-object tool to families.</li>
+            <li>Built-in referral: inviting a co-parent or grandparent is a native, warm sharing act, not a growth hack.</li>
+            <li>Preschools as a later B2B2C beachhead once retention is proven.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="label">Activation</div><p>First collection created plus first game played</p></div>
+        <div class="metric"><div class="label">D30 retention</div><p>Weekly-active children per household</p></div>
+        <div class="metric"><div class="label">Free to paid</div><p>Conversion to Premium (target 3–5%)</p></div>
+        <div class="metric"><div class="label">Referral</div><p>Invited co-caregivers per paying account</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-reveal>
+    <div>
+      <div class="kicker">Product roadmap</div>
+      <h2>From a finished web app to a monetized, multi-segment platform.</h2>
+      <div class="roadmap">
+        <div class="phase">
+          <div><span class="when">Now</span><span class="status-tag">Shipped</span></div>
           <h3>Product built and compliant</h3>
           <p>Full web PWA: multi-child profiles, photo library, 15+ games, rooms, care log, co-caregiver sharing, offline-first sync. Consent flow, parental gate, and 90-day photo-retention policy in place.</p>
         </div>
-      </div>
-      <div class="phase">
-        <div><span class="when">Q1</span><span class="status-tag">Launch</span></div>
-        <div>
+        <div class="phase">
+          <div><span class="when">Q1</span><span class="status-tag">Launch</span></div>
           <h3>Native apps and payments</h3>
           <p>Ship iOS/Android (Expo migration is planned), wire subscription billing (Stripe / RevenueCat), submit to the App Store Kids category, and turn on the freemium paywall.</p>
         </div>
-      </div>
-      <div class="phase">
-        <div><span class="when">Q2 to Q3</span><span class="status-tag">Grow</span></div>
-        <div>
+        <div class="phase">
+          <div><span class="when">Q2–Q3</span><span class="status-tag">Grow</span></div>
           <h3>Content and curriculum layer</h3>
           <p>Starter collection packs so an empty library isn't a cold start, multilingual voice, more Explore games, and a light progress / "what they're learning" view for parents.</p>
         </div>
-      </div>
-      <div class="phase">
-        <div><span class="when">Q4+</span><span class="status-tag">Expand</span></div>
-        <div>
+        <div class="phase">
+          <div><span class="when">Q4+</span><span class="status-tag">Expand</span></div>
           <h3>New segments and B2B</h3>
           <p>Speech-therapy mode and clinician seats, preschool / classroom management, and the reserved higher developmental phases, all on the existing content engine.</p>
         </div>
@@ -450,91 +276,102 @@
     </div>
   </section>
 
-  <section>
-    <div class="kicker">Illustrative financial model</div>
-    <h2>A subscription business with software-grade margins.</h2>
-    <p class="intro">The figures below are a planning scenario to show shape and sensitivity, not actuals and not a promise. They assume a freemium launch with disciplined paid acquisition layered on organic.</p>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr><th>Assumption / metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Installs (cumulative)</td><td>75,000</td><td>350,000</td><td>1,000,000</td></tr>
-          <tr><td>Free to paid conversion</td><td>3.0%</td><td>4.0%</td><td>5.0%</td></tr>
-          <tr><td>Paying subscribers</td><td>2,250</td><td>14,000</td><td>50,000</td></tr>
-          <tr><td>Blended ARPU / yr</td><td>$45</td><td>$47</td><td>$48</td></tr>
-          <tr><td>Annual recurring revenue</td><td>$101K</td><td>$658K</td><td>$2.40M</td></tr>
-          <tr><td>Gross margin</td><td>~80%</td><td>~82%</td><td>~85%</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="fin-notes">
-      <div class="card">
-        <h3>Cost base</h3>
-        <p>Lean: Supabase/Vercel infra scales with usage, no content-licensing fees (users supply content), and no ad-network dependencies. Largest lines are engineering and paid acquisition.</p>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Illustrative financial model</div>
+      <h2>A subscription business with software-grade margins.</h2>
+      <p class="intro">The figures below are a planning scenario to show shape and sensitivity, not actuals and not a promise. They assume a freemium launch with disciplined paid acquisition layered on organic.</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Assumption / metric</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Installs (cumulative)</td><td>75,000</td><td>350,000</td><td>1,000,000</td></tr>
+            <tr><td>Free to paid conversion</td><td>3.0%</td><td>4.0%</td><td>5.0%</td></tr>
+            <tr><td>Paying subscribers</td><td>2,250</td><td>14,000</td><td>50,000</td></tr>
+            <tr><td>Blended ARPU / yr</td><td>$45</td><td>$47</td><td>$48</td></tr>
+            <tr><td>Annual recurring revenue</td><td>$101K</td><td>$658K</td><td>$2.40M</td></tr>
+            <tr><td>Gross margin</td><td>~80%</td><td>~82%</td><td>~85%</td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="card">
-        <h3>Unit economics lever</h3>
-        <p>LTV is driven by the annual plan and low churn from an accumulating personal library. The plan holds if CAC stays well under first-year ARPU, the reason to test paid channels early and small.</p>
-      </div>
-      <div class="card">
-        <h3>Sensitivity</h3>
-        <p>Revenue is most sensitive to conversion and retention, not price. A 1-point conversion swing moves Year-3 ARR by roughly a third, so activation and habit are the focus.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="kicker">Risks and mitigations</div>
-    <h2>Where this gets hard, and the plan for it.</h2>
-    <div class="risk-grid">
-      <div class="risk">
-        <h3>Distribution and CAC <span class="sev">Key risk</span></h3>
-        <p>The kids' category is crowded and paid UA can be expensive. Mitigation: lead with organic, high-shareability video and practitioner referrals; only scale paid once activation and D30 are proven.</p>
-      </div>
-      <div class="risk">
-        <h3>Retention / novelty <span class="sev">Key risk</span></h3>
-        <p>Kids' apps churn. Mitigation: the library compounds and phases unlock new games as the child grows, plus starter packs to beat the cold-start empty library.</p>
-      </div>
-      <div class="risk">
-        <h3>Cold-start effort <span class="sev">Moderate</span></h3>
-        <p>Personalization requires the parent to add photos. Mitigation: guided onboarding, starter collections, and a first-session that reaches "play" with only a couple of photos.</p>
-      </div>
-      <div class="risk">
-        <h3>Platform and compliance <span class="sev">Moderate</span></h3>
-        <p>App-store rules and children's-privacy law are strict and shifting. Mitigation: already built for it, consent flow, parental gate, retention policy, DPIA and breach runbook drafted; counsel review before public launch.</p>
+      <div class="grid-plain">
+        <div class="cell">
+          <h3>Cost base</h3>
+          <p>Lean: Supabase/Vercel infra scales with usage, no content-licensing fees (users supply content), and no ad-network dependencies. Largest lines are engineering and paid acquisition.</p>
+        </div>
+        <div class="cell">
+          <h3>Unit economics lever</h3>
+          <p>LTV is driven by the annual plan and low churn from an accumulating personal library. The plan holds if CAC stays well under first-year ARPU, the reason to test paid channels early and small.</p>
+        </div>
+        <div class="cell">
+          <h3>Sensitivity</h3>
+          <p>Revenue is most sensitive to conversion and retention, not price. A 1-point conversion swing moves Year-3 ARR by roughly a third, so activation and habit are the focus.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section>
-    <div class="kicker">Foundations already in place</div>
-    <h2>The unglamorous parts are done.</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Engineering</h3>
-        <p>Modern stack (Next.js, React, TypeScript, Supabase), offline-first architecture, tested, with a documented native-app migration path.</p>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Risks and mitigations</div>
+      <h2>Where this gets hard, and the plan for it.</h2>
+      <div class="risk-grid">
+        <div class="risk">
+          <h3>Distribution and CAC <span class="sev">Key risk</span></h3>
+          <p>The kids' category is crowded and paid UA can be expensive. Mitigation: lead with organic, high-shareability video and practitioner referrals; only scale paid once activation and D30 are proven.</p>
+        </div>
+        <div class="risk">
+          <h3>Retention / novelty <span class="sev">Key risk</span></h3>
+          <p>Kids' apps churn. Mitigation: the library compounds and phases unlock new games as the child grows, plus starter packs to beat the cold-start empty library.</p>
+        </div>
+        <div class="risk">
+          <h3>Cold-start effort <span class="sev">Moderate</span></h3>
+          <p>Personalization requires the parent to add photos. Mitigation: guided onboarding, starter collections, and a first-session that reaches "play" with only a couple of photos.</p>
+        </div>
+        <div class="risk">
+          <h3>Platform and compliance <span class="sev">Moderate</span></h3>
+          <p>App-store rules and children's-privacy law are strict and shifting. Mitigation: already built for it — consent flow, parental gate, retention policy, DPIA and breach runbook drafted; counsel review before public launch.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Trust and safety</h3>
-        <p>Row-level data isolation, no ads/trackers, photograph-belongings-not-the-child guidance, full data export and delete, and a shipped compliance layer.</p>
-      </div>
-      <div class="card">
-        <h3>Depth of play</h3>
-        <p>Not a prototype, a real catalog of games and developmental stages that already gives a household years of runway per library.</p>
-      </div>
-    </div>
-    <div class="bottom-line">
-      <strong>Bottom line:</strong> miStuff is a finished, differentiated, compliance-ready product in a large, resilient market. The remaining work is a business problem, launch, price, and distribution, not a research problem.
     </div>
   </section>
 
-  <footer>
+  <section data-reveal>
+    <div>
+      <div class="kicker">Foundations already in place</div>
+      <h2>The unglamorous parts are done.</h2>
+      <div class="grid-plain">
+        <div class="cell">
+          <h3>Engineering</h3>
+          <p>Modern stack (Next.js, React, TypeScript, Supabase), offline-first architecture, tested, with a documented native-app migration path.</p>
+        </div>
+        <div class="cell">
+          <h3>Trust and safety</h3>
+          <p>Row-level data isolation, no ads/trackers, photograph-belongings-not-the-child guidance, full data export and delete, and a shipped compliance layer.</p>
+        </div>
+        <div class="cell">
+          <h3>Depth of play</h3>
+          <p>Not a prototype — a real catalog of games and developmental stages that already gives a household years of runway per library.</p>
+        </div>
+      </div>
+      <div class="bottom-line">
+        <strong>Bottom line</strong>
+        miStuff is a finished, differentiated, compliance-ready product in a large, resilient market. The remaining work is a business problem — launch, price, and distribution — not a research problem.
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <footer class="site-footer">
     <div class="mark">miStuff</div>
-    <div>Their first words, from their own world.</div>
+    <div class="sub">Their first words, from their own world.</div>
     <p class="fine">Confidential and for discussion only. Market figures are directional context and the financial model is an illustrative planning scenario, not a forecast, guarantee, or offer of securities. Competitor details are summarized from public positioning and may be out of date.</p>
   </footer>
 </div>
+
+<script src="../../assets/site.js"></script>
 </body>
 </html>
