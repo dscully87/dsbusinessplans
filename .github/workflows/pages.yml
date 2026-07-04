@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [claude/mistuff-business-plan-fo7tb2]
   workflow_dispatch:
 
 permissions:
