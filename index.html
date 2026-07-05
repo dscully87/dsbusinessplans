@@ -5,15 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DS Business Plans</title>
 <meta name="description" content="A working index of business plans in development.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141311'/%3E%3Cpath d='M8 24 L8 8 L16 8 Q24 8 24 16 Q24 24 16 24 Z' fill='none' stroke='%23ff4d1f' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101116'/%3E%3Cpath d='M8 24 L8 8 L16 8 Q24 8 24 16 Q24 24 16 24 Z' fill='none' stroke='%237f8bff' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
+
+<div class="progress" aria-hidden="true"></div>
 
 <header class="masthead">
   <div class="wrap">
     <a class="brand" href="index.html">DS Business Plans</a>
     <nav>
+      <span class="clock" data-clock aria-hidden="true"></span>
       <span>Index</span>
       <button class="theme-toggle" data-theme-toggle type="button">Dark</button>
     </nav>
@@ -22,28 +28,35 @@
 
 <div class="wrap">
   <div class="doc-header">
-    <div class="doc-id"><span class="dot"></span> Working index — updated 2026</div>
-    <h1 class="title">Plans in <em>progress</em>, in the open.</h1>
+    <div class="doc-id"><span class="dot"></span> Working index — updated 2026 — <em>01 plan active</em></div>
+    <h1 class="title">Plans in <span class="ghost">progress,</span> in the open.</h1>
     <p class="lede">A running record of the ventures I'm building out, one plan at a time — problem, product, market, and the numbers behind them.</p>
+    <div class="meta-row">
+      <span>Format: working documents</span>
+      <span>Cadence: as built</span>
+      <span>Status: live</span>
+    </div>
   </div>
 
   <div class="index-list" data-reveal>
     <a class="index-row" href="plans/mistuff/index.html">
-      <span class="n">01</span>
+      <span class="n" aria-hidden="true">01</span>
       <span>
         <span class="status">Pre-launch — product built</span>
         <h2>miStuff</h2>
         <p>An early-learning mobile app that turns a toddler's own belongings into personalized matching and naming games.</p>
       </span>
-      <span class="arrow">→</span>
+      <span class="arrow" aria-hidden="true">→</span>
     </a>
   </div>
+</div>
 
-  <footer class="site-footer">
+<footer class="site-footer">
+  <div class="wrap">
     <div class="mark">DS</div>
     <div class="sub">Confidential materials, prepared for discussion only.</div>
-  </footer>
-</div>
+  </div>
+</footer>
 
 <script src="assets/site.js"></script>
 </body>
