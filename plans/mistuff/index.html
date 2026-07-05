@@ -5,15 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>miStuff — Business Plan</title>
 <meta name="description" content="miStuff business plan: an early-learning app that teaches a child using their own belongings.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141311'/%3E%3Cpath d='M8 24 L8 8 L16 8 Q24 8 24 16 Q24 24 16 24 Z' fill='none' stroke='%23ff4d1f' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23101116'/%3E%3Cpath d='M8 24 L8 8 L16 8 Q24 8 24 16 Q24 24 16 24 Z' fill='none' stroke='%237f8bff' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap">
 <link rel="stylesheet" href="../../assets/site.css">
 </head>
 <body>
+
+<div class="progress" aria-hidden="true"></div>
 
 <header class="masthead">
   <div class="wrap">
     <a class="brand" href="../../index.html">DS Business Plans</a>
     <nav>
+      <span class="clock" data-clock aria-hidden="true"></span>
       <a class="back" href="../../index.html">← Index</a>
       <button class="theme-toggle" data-theme-toggle type="button">Dark</button>
     </nav>
@@ -22,11 +28,37 @@
 
 <div class="wrap">
   <div class="doc-header">
-    <div class="doc-id"><span class="dot"></span> Confidential business plan — prepared July 2026 — status: product built, pre-monetization</div>
-    <h1 class="title">miStuff</h1>
+    <div class="doc-id"><span class="dot"></span> Confidential business plan — prepared July 2026 — <em>product built, pre-monetization</em></div>
+    <h1 class="title">mi<span class="ghost">Stuff</span></h1>
     <p class="tagline">Their first words, from their own world.</p>
     <p class="lede">miStuff turns the objects in a child's actual home — their cup, their shoe, their teddy — into the learning game. A caregiver photographs the things a toddler already loves; miStuff builds matching and naming games from those exact photos.</p>
+    <div class="meta-row">
+      <span>Doc: BP-01</span>
+      <span>Rev: 2026-07</span>
+      <span>Stage: pre-launch</span>
+      <span>Class: confidential</span>
+    </div>
   </div>
+
+  <div class="layout">
+    <nav class="rail" aria-label="Sections">
+      <div class="rail-label">Contents</div>
+      <ol>
+        <li><a href="#summary"><span class="rn">01</span> Summary</a></li>
+        <li><a href="#problem"><span class="rn">02</span> Problem</a></li>
+        <li><a href="#product"><span class="rn">03</span> Product</a></li>
+        <li><a href="#market"><span class="rn">04</span> Market</a></li>
+        <li><a href="#competition"><span class="rn">05</span> Competition</a></li>
+        <li><a href="#model"><span class="rn">06</span> Model</a></li>
+        <li><a href="#gtm"><span class="rn">07</span> Go-to-market</a></li>
+        <li><a href="#roadmap"><span class="rn">08</span> Roadmap</a></li>
+        <li><a href="#financials"><span class="rn">09</span> Financials</a></li>
+        <li><a href="#risks"><span class="rn">10</span> Risks</a></li>
+        <li><a href="#foundations"><span class="rn">11</span> Foundations</a></li>
+      </ol>
+    </nav>
+
+    <div class="doc-main">
 
   <div class="stat-strip" data-reveal>
     <div class="stat"><div class="num">0–4</div><div class="label">Core age band (with a 0–12 month baby-log on-ramp)</div></div>
@@ -37,7 +69,7 @@
 
   <div class="doc">
 
-  <section data-reveal>
+  <section id="summary" data-reveal>
     <div>
       <div class="kicker">Executive summary</div>
       <h2>A personalized, privacy-first learning app that teaches a child using their own belongings.</h2>
@@ -62,7 +94,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="problem" data-reveal>
     <div>
       <div class="kicker">The problem</div>
       <h2>Generic content, and a trust deficit, in the most sensitive app category there is.</h2>
@@ -83,7 +115,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="product" data-reveal>
     <div>
       <div class="kicker">The product</div>
       <h2>Photograph it, sort it, play it.</h2>
@@ -125,7 +157,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="market" data-reveal>
     <div>
       <div class="kicker">Market and customer</div>
       <h2>A large, defensive spend category. Parents pay for their kids first.</h2>
@@ -149,7 +181,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="competition" data-reveal>
     <div>
       <div class="kicker">Competitive landscape</div>
       <h2>Everyone ships stock content. No one ships the child's own.</h2>
@@ -172,7 +204,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="model" data-reveal>
     <div>
       <div class="kicker">Business model</div>
       <h2>Freemium subscription, with a B2B seat expansion later.</h2>
@@ -216,7 +248,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="gtm" data-reveal>
     <div>
       <div class="kicker">Go-to-market</div>
       <h2>Lead with the most demoable moment in the category.</h2>
@@ -247,7 +279,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="roadmap" data-reveal>
     <div>
       <div class="kicker">Product roadmap</div>
       <h2>From a finished web app to a monetized, multi-segment platform.</h2>
@@ -276,7 +308,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="financials" data-reveal>
     <div>
       <div class="kicker">Illustrative financial model</div>
       <h2>A subscription business with software-grade margins.</h2>
@@ -313,7 +345,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="risks" data-reveal>
     <div>
       <div class="kicker">Risks and mitigations</div>
       <h2>Where this gets hard, and the plan for it.</h2>
@@ -338,7 +370,7 @@
     </div>
   </section>
 
-  <section data-reveal>
+  <section id="foundations" data-reveal>
     <div>
       <div class="kicker">Foundations already in place</div>
       <h2>The unglamorous parts are done.</h2>
@@ -365,12 +397,17 @@
 
   </div>
 
-  <footer class="site-footer">
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
     <div class="mark">miStuff</div>
     <div class="sub">Their first words, from their own world.</div>
     <p class="fine">Confidential and for discussion only. Market figures are directional context and the financial model is an illustrative planning scenario, not a forecast, guarantee, or offer of securities. Competitor details are summarized from public positioning and may be out of date.</p>
-  </footer>
-</div>
+  </div>
+</footer>
 
 <script src="../../assets/site.js"></script>
 </body>
